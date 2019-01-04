@@ -2,60 +2,91 @@ import pygame
 from pygame.locals import *
 import time
 import random
-class Bullet(object):
-    def __init__(self,screen,x,y):
-        self.x = x+40
-        self.y =y-20
-        self.screen = screen
-        self.bullet=pygame.image.load("./feiji/bullet-3.gif").convert()
-    def display(self):
-        self.screen.blit(self.bullet,(self.x,self.y))
-    def bulletMove(self):
-        self.y-=2
-    def judgeOut(self):
-        if self.y<=30:
-            return True
-        else:
-            return False
 
-class EnemyBullet(object):
-    def __init__(self,screen,x,y):
-        self.x = x+70
-        self.y =y+246
+class Status(object):
+    def __init__(self,screen,image,x,y):
+        self.x = x
+        self.y = y
         self.screen = screen
-        self.bullet=pygame.image.load("./feiji/bullet-1.gif").convert()
-    def display(self):
-        self.screen.blit(self.bullet,(self.x,self.y))
-    def bulletMove(self):
-        self.y+=1
-    def judgeOut(self):
-        if self.y>=890:
-            return True
-        else:
-            return False
+        self.image = pygame.image.load(image).convert()
 
-class EnemyPlane(object):
-    def __init__(self,screen):
-        self.x= 230
-        self.y = 0
-        self.screen = screen
-        self.biaoshi =True
-        self.mybullet=[]
-        self.enemy = pygame.image.load("./feiji/enemy-3.gif").convert()
-    
+class PullicByllet(Status):
     def display(self):
-        self.screen.blit(self.enemy,(self.x,self.y))
-        balluteNeeedRemoved =[]
+        self.screen.blit(self.image,(self.x,self.y))
+    def bulletMove(self,num):
+        self.y+=num
         
-        for shootBullet in self.mybullet:
-            shootBullet.display()
-            shootBullet.bulletMove()
-            if shootBullet.judgeOut():
-                balluteNeeedRemoved.append(shootBullet)
+    def judgeOut(self):
+        if self.y<0 or self.y>890:
+            return True
+        else:
+            return False
+
+class SatusPlane(Status):
+    def __init__(self,screen,image,x,y):
+        super(SatusPlane,self).__init__(screen,image,x,y)
+        self.image = pygame.image.load(image).convert()
+        self.mybullet=[]
+        self.HP =100
+
+    def display(self,num):
+
+        balluteNeeedRemoved =[]
+        self.screen.blit(self.image,(self.x,self.y))
+        for self.shootBullet in self.mybullet:
+            self.shootBullet.display()
+            self.shootBullet.bulletMove(num)
+            if self.shootBullet.judgeOut():
+                balluteNeeedRemoved.append(self.shootBullet)  
         for i in balluteNeeedRemoved:
             self.mybullet.remove(i)
-           
+            pass
+        time.sleep(0.01)
+
+    def Shoot(self,image,numx,numy):
+        self.BulletS = PullicByllet(self.screen,image,self.x+numx,self.y+numy)
+        self.mybullet.append(self.BulletS)
     
+    def shanghai(self):
+        self.HP -=5
+        if self.HP<0:
+            return True
+    def panduan(self):
+
+
+
+class HeroPlane(SatusPlane):
+    def __init__(self,screen):
+        image ="./feiji/hero.gif"
+        super(HeroPlane,self).__init__(screen,image,x=230,y=600)
+
+    def lift(self):
+        self.x-=10
+
+    def right(self):
+        self.x+=10
+
+    def up(self):
+        self.y-=10
+        
+    def down(self):
+        self.y+=10
+       
+    def shoot(self):
+        image="./feiji/bullet-3.gif"
+        super(HeroPlane,self).Shoot(image,40,-20)
+
+    
+
+
+
+
+class EnemyPlane(SatusPlane):
+    def __init__(self,screen):
+        image ="./feiji/enemy-3.gif"
+        self.biaoshi = True
+        super(EnemyPlane,self).__init__(screen,image,x=230,y=0)
+
     def ememyMove(self):
         if self.biaoshi:
             self.x+=2
@@ -66,72 +97,28 @@ class EnemyPlane(object):
             if self.x<0:
                 self.biaoshi = True
 
-    def enemyShoot(self):
-        randomBa=random.randint(1,100)
-        if randomBa == 50:
-            self.BulletS = EnemyBullet(self.screen,self.x,self.y)
-            self.mybullet.append(self.BulletS)
-
-
-
-
-class HeroPlane(object):
-    def __init__(self,screen):
-        self.myfly = pygame.image.load("./feiji/hero.gif").convert()
-        self.x = 230
-        self.y = 400
-        self.screen = screen
-        self.mybullet=[]
-        
-   
-    def display(self):
-
-        balluteNeeedRemoved =[]
-        self.screen.blit(self.myfly,(self.x,self.y))
-        for self.shootBullet in self.mybullet:
-            self.shootBullet.display()
-            self.shootBullet.bulletMove()
-            if self.shootBullet.judgeOut():
-                balluteNeeedRemoved.append(self.shootBullet)
-                
-        for i in balluteNeeedRemoved:
-            self.mybullet.remove(i)
-            pass
-        time.sleep(0.01)
-
-    def lift(self):
-        self.x-=10
-    def right(self):
-        self.x+=10
-    def up(self):
-        self.y-=10
-        
-    def down(self):
-        self.y+=10
-       
     def shoot(self):
-        self.BulletS = Bullet(self.screen,self.x,self.y)
-        self.mybullet.append(self.BulletS)
-
-
+        image = "./feiji/bullet-1.gif"
+        randomBa=random.randint(1,50)
+        if randomBa == 25:
+            super(EnemyPlane,self).Shoot(image,70,240)
 
        
 if __name__== "__main__":
     screen = pygame.display.set_mode((480,890),0,32)
-    imageFile = "./feiji/background.png"
-    background = pygame.image.load(imageFile).convert()
-  
+    image = "./feiji/background.png"
+    background = pygame.image.load(image).convert()
     hero =  HeroPlane(screen)
     enemys = EnemyPlane(screen)
     while True:
         screen.blit(background,(0,0))
         enemys.ememyMove()
-        hero.display()
-        enemys.display()
-        enemys.enemyShoot()
+        hero.display(-2)
+        enemys.display(2)
+        enemys.shoot()
+
         for event in pygame.event.get():
             if event.type == KEYDOWN:
-             
                 if event.key == K_a:
                     hero.x -=10
                 elif event.key == K_d:

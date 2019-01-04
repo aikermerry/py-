@@ -18,6 +18,7 @@ class Bullet(object):
         else:
             return False
 
+
 class EnemyBullet(object):
     def __init__(self,screen,x,y):
         self.x = x+70
