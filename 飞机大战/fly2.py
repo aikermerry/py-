@@ -76,11 +76,6 @@ class HeroPlane(SatusPlane):
         image="./feiji/bullet-3.gif"
         super(HeroPlane,self).Shoot(image,40,-20)
 
-    
-
-
-
-
 class EnemyPlane(SatusPlane):
     def __init__(self,screen):
         image ="./feiji/enemy-3.gif"
