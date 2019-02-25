@@ -13,6 +13,7 @@ class Status(object):
 class PullicByllet(Status):
     def display(self):
         self.screen.blit(self.image,(self.x,self.y))
+    
     def bulletMove(self,num):
         self.y+=num
         
@@ -21,6 +22,12 @@ class PullicByllet(Status):
             return True
         else:
             return False
+    
+    def judgeHp(self):
+        if self.HP<0:
+            return True
+    
+
 
 class SatusPlane(Status):
     def __init__(self,screen,image,x,y):
@@ -47,11 +54,7 @@ class SatusPlane(Status):
         self.BulletS = PullicByllet(self.screen,image,self.x+numx,self.y+numy)
         self.mybullet.append(self.BulletS)
     
-    def shanghai(self):
-        self.HP -=5
-        if self.HP<0:
-            return True
-    def panduan(self):
+ 
 
 
 
