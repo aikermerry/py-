@@ -4,8 +4,9 @@ num = 1
 def test():
     global num
     num +=1
+    time.sleep(2)
     print("执行一个程序")
-    time.sleep(1)
+    
     
 
 for i in range(5):

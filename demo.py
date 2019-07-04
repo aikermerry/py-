@@ -15,7 +15,7 @@ def getContentOrComment(Url):
     headers = {'User-Agent': 'User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}
     req=request.Request(url=Url,headers=headers)#用地址创建一个request对象
     response=urllib.request.urlopen(req)#打开网址
-    content=response.read()#读成源代码
+    content=response.read()#读成s源代码
     return content
 while True:
     enter=input("点击enter查看或者输入exit退出：")
