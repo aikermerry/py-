@@ -10,16 +10,22 @@ class Application(object):
 
     def __call__(self, env, start_response):
         path = env.get("PATH_INFO","/")
-        if path.startwith("/static"):
+        if path.startswith("/static"):
             pathname=path[7:]
             try:
                 with open("." + pathname, "r") as f:
                     htmlComent = f.read()
                     status = "200 ok"
-                    headers = {
-                        ("Content-Type", "text/plain;charset=utf-8"),
-                        ("Service", "My server")
-                    }
+                    if pathname.endswith(".jpg"):
+                        headers = {
+                            ("Content-Type", "image/jpg"),
+                            ("Service", "My server")
+                        }
+                    else:
+                        headers = {
+                            ("Content-Type", "text/html;charset=utf-8"),
+                            ("Service", "My server")
+                        }
                     start_response(status, headers)
                     return htmlComent
 
@@ -30,7 +36,7 @@ class Application(object):
                     ("Service", "My server")
                 }
                 start_response(status, headers)
-                return error
+                return "%s"%error
         for url,app in self.url:
             if url == path:
                 return app(env, start_response)
@@ -43,7 +49,7 @@ class Application(object):
         start_response(status, headers)
         return "open filed"
 
-
+#主页
 def index(env, start_response):
     status = "200 OK"
     headers = {
@@ -52,7 +58,7 @@ def index(env, start_response):
     }
     start_response(status, headers)
     return "你好"
-
+#获取时间
 def ctime(env, start_response):
     status = "200 OK"
     headers = {

@@ -2,18 +2,16 @@
 import re
 from socket import *
 from threading import *
-import sys
-import netifaces as ni
 
 
 # 建立tcp通信
+
+
 class HttpServices(object):
-    def __init__(self,app):
-        """app 就是web框架"""
+    def __init__(self):
         self.tcpService = socket(AF_INET, SOCK_STREAM)
         self.response_header = ""
         self.response_start = ""
-        self.app = app
 
     def start(self):
         self.tcpService.listen(50)
@@ -23,13 +21,12 @@ class HttpServices(object):
             web_thread.start()
 
     def start_respond(self, status, headers):
-        """实现字符串的拼接"""
         self.response_header = "HTTP/1.1 " + status + "\r\n"
         for i in headers:
             self.response_header += "%s:%s\r\n" % i
 
     def remote_recv(self, newSocket):
-        "接收数据"
+
         recvData = newSocket.recv(1024)
         recvData = recvData.decode("utf-8")
         print(recvData)
@@ -39,16 +36,30 @@ class HttpServices(object):
         path = re.findall(".*GET(.*)HTTP.*", recvData)
         print(path[0].split()[0])
         path = path[0].split()[0]
+        if path.endswith(".py"):
+            wcgi = __import__(path[1:-3])
+            env = {}
+            response_body = wcgi.application(env, self.start_respond)
 
-        #请求体
-        env = {
-            "PATH_INFO": path,
-        }
-        response_body = self.app(env, self.start_respond)
+        else:
+            if "/" == path:
+                self.response_start = "HTTP/1.1 200 ok\r\n"
+                response_body = "main page"
+            else:
+                self.response_start = "HTTP/1.1 200 ok\r\n"
+                try:
+                    with open("." + path, "r") as f:
+                        htmlComent = f.read()
+                        response_body = htmlComent
+                except BaseException as f:
+                    print(f)
+                    self.response_start = "HTTP/1.1 404 GET Falled\r\n"
+                    response_body = "open file failed"
 
-        response = self.response_header + "\r\n" \
+            self.response_header = "Service:My server\r\n"
+        response = self.response_start + self.response_header + "\r\n" \
                    + response_body
-
+        print(response)
         newSocket.send(bytes(response, "utf-8"))
         newSocket.close()
 
@@ -56,35 +67,12 @@ class HttpServices(object):
         self.tcpService.bind(("", port))
 
 
-def get_Net_Local_Ip():
-    try:
-        ni.ifaddresses('enp2s0')
-        netIp = ni.ifaddresses('enp2s0')[2][0]['addr']
-        return netIp
-    except:
-        myIpName = getfqdn(gethostname())
-        # 获取本机ip
-        myaddr = gethostbyname(myIpName)
-        return myaddr
-
-
-def main(port):
-    #动态加载框架
-    #python HttpService.py webFramwork app
-    try:
-        _,modename,classmethod =sys.argv
-    except:
-        sys.exit("python HttpService.py webFramwork app")
-    modenames = __import__(modename)
-    app = getattr(modenames,classmethod)
-    http_service = HttpServices(app)
-    http_service.set_port(port)
+def main():
+    http_service = HttpServices()
+    http_service.set_port(8086)
     http_service.start()
+
 
 if "__main__" == __name__:
     print("服务器启动。。。。。")
-    port = 8087
-    localIp = get_Net_Local_Ip()
-    print(localIp+":%d"%port)
-
-    main(port)
+    main()

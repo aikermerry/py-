@@ -1,0 +1,100 @@
+<html>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <head>
+ <title >温湿度监控系统</title>
+
+ <script >
+    function checkUser(){
+        var result = document.getElementById("demo").value;
+        var password = document.getElementById("demo1").value;
+        if(result == ""  ){
+            alert("用户名不能为空");
+            return false;
+        }
+        if(password == ""  ){
+            alert("密码不能为空");
+            return false;
+       }else{
+        if(password=="123456"&& result=="root"){ 
+       window.location.href="http://localhost/xiaoliu.cgi";
+        }
+        else{
+        alert("密码或账号错误");
+        }
+       }
+        };
+
+ </script>
+<style>
+    form{
+        position:fixed; 
+        left:35%;
+        top:35%;
+        border: 4px black solid;
+        width: 400px;
+        height: 250px;
+        background:rgba(47,79,79,0.3);
+        /*background:#ccc;*/
+        text-align: center;
+        }
+    #demo{
+        width: 200px;
+        height: 30px;
+        font-size:20px;
+        text-align: center;
+    }
+    #demo1{
+        width: 200px;
+        height: 30px;
+        font-size:20px;
+        text-align: center;
+    }
+    p{
+        font-size:20px;
+    }
+    body{ 
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:url("3.jpg");
+    }
+    #button{
+        width: 60px;
+        height: 30px;
+        font-size:15px;
+    }
+    #labl1{
+        position:fixed; 
+        left:25%;
+        top:13%;
+        font-size:45px;
+    }
+    #logpng{
+     
+        width: 30px;
+        height: 40px;
+
+    }
+
+</style>
+
+</head>
+<body >   
+   <h1 id="labl1">后台管理系统</h1>
+   
+    <form  id ="submitForm" >
+        <p id ="labl2" style="color: "blue"> 温湿度监控系统登录 
+            <img id = "logpng" src="labal.png"  alt="登录" /> 
+        </p>
+        <p>账号:
+        <input id="demo" type="text" name="number" value=''>
+        </p>
+        <p>密码:
+       <input id ="demo1" type="text" name="text" value=''>
+        </p>       
+     <input id ="button" type="button" value="登录" onclick="checkUser()" />
+    </form>
+ </body>
+ </html>
+<!---readonly="true-!>
