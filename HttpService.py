@@ -62,9 +62,9 @@ def get_Net_Local_Ip():
         netIp = ni.ifaddresses('enp2s0')[2][0]['addr']
         return netIp
     except:
-        myIpName = getfqdn(gethostname())
+        my_ip_name = getfqdn(gethostname())
         # 获取本机ip
-        myaddr = gethostbyname(myIpName)
+        myaddr = gethostbyname(my_ip_name)
         return myaddr
 
 
@@ -75,8 +75,8 @@ def main(port):
         _,modename,classmethod =sys.argv
     except:
         sys.exit("python HttpService.py webFramwork app")
-    modenames = __import__(modename)
-    app = getattr(modenames,classmethod)
+    mode_names = __import__(modename)
+    app = getattr(mode_names,classmethod)
     http_service = HttpServices(app)
     http_service.set_port(port)
     http_service.start()

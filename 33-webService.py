@@ -34,6 +34,7 @@ class HttpServices(object):
             newSocket.close()
             return 0
         path = re.findall(".*GET(.*)HTTP.*", recvData)
+
         print(path[0].split()[0])
         path = path[0].split()[0]
         if path.endswith(".py"):
