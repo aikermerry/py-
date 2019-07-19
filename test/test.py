@@ -1,18 +1,20 @@
-# coding:utf-8
-import re
-text = """
-<script type="text/javascript" src="https://ss1.bdstatic.cn/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
-"""
-print(text)
-print(re.findall(r"src=\"(.*)\"",text)[0])
-ret = re.findall(r"src=\"(.*)\"",text)[0]
-def replace(result):
-    print(result.group(1))
-    ret = result.group(1)
-    return ret
 
 
-print(re.sub("(\.\w?\w?\w/).*",replace,ret))
+import pymysql
 
+# 打开数据库连接
+db = pymysql.connect("localhost", "root", "123456", "python")
 
+# 使用 cursor() 方法创建一个游标对象 cursor
+cursor = db.cursor()
 
+# 使用 execute()  方法执行 SQL 查询
+cursor.execute("UPDATE xiaoliu SET name='jdSDds' WHERE id<5")
+db.commit()
+# 使用 fetchone() 方法获取单条数据.
+data = cursor.fetchone()
+
+print("Database version : %s " % data)
+
+# 关闭数据库连接
+db.close()
