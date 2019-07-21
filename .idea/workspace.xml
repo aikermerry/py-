@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad56d261-7b21-4427-9766-a31f75637b55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysql_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/13-数据库.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/13-数据库.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,45 +21,14 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="python@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="python@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="python@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="python: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="python@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="python: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="python@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="python: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="xiaoliu: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="py练习" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ctime.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -78,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MysqlHelper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
+            <state relative-caret-position="380">
               <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
             </state>
           </provider>
@@ -88,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/mysql_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -96,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysql_login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+            <state relative-caret-position="420">
+              <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -162,22 +125,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="py练习" type="b2602c69:ProjectViewProjectNode" />
-              <item name="py练习" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="py练习" type="b2602c69:ProjectViewProjectNode" />
-              <item name="py练习" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -368,6 +316,8 @@
       <workItem from="1562806174028" duration="22924000" />
       <workItem from="1563062668180" duration="1627000" />
       <workItem from="1563433268374" duration="16342000" />
+      <workItem from="1563526018650" duration="248000" />
+      <workItem from="1563544730010" duration="1678000" />
     </task>
     <task id="LOCAL-00001" summary="liu">
       <created>1562249168587</created>
@@ -394,7 +344,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117065000" />
+    <option name="totallyTimeSpent" value="118991000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -408,10 +358,9 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="714" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498708" visible="true" weight="0.13429439" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498708" visible="true" weight="0.13884674" />
       <window_info id="Structure" order="1" sideWeight="0.501292" side_tool="true" weight="0.124430954" />
       <window_info id="Favorites" order="2" sideWeight="0.5014749" side_tool="true" weight="0.124430954" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32931727" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6167247" />
@@ -425,6 +374,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.5836237" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.29268292" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32931727" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -751,13 +701,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysql.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_mysql.py">
+    <entry file="file://$PROJECT_DIR$/mysql.py" />
+    <entry file="file://$PROJECT_DIR$/test_mysql.py" />
+    <entry file="file:///usr/lib/python3.6/hashlib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="168">
+          <caret line="50" column="66" lean-forward="true" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -770,7 +719,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MysqlHelper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
+        <state relative-caret-position="380">
           <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
         </state>
       </provider>
@@ -778,21 +727,14 @@
     <entry file="file://$PROJECT_DIR$/mysql_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.6/hashlib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="50" column="66" lean-forward="true" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="78" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysql_login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+        <state relative-caret-position="420">
+          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
