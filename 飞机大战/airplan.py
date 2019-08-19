@@ -22,10 +22,7 @@ class PullicByllet(Status):
             return True
         else:
             return False
-    
-    def judgeHp(self):
-        if self.HP<0:
-            return True
+
     
 
 
@@ -34,7 +31,6 @@ class SatusPlane(Status):
         super(SatusPlane,self).__init__(screen,image,x,y)
         self.image = pygame.image.load(image).convert()
         self.mybullet=[]
-        self.HP =100
 
     def display(self,num):
 
@@ -54,6 +50,7 @@ class SatusPlane(Status):
         self.BulletS = PullicByllet(self.screen,image,self.x+numx,self.y+numy)
         self.mybullet.append(self.BulletS)
     
+
  
 
 
@@ -79,6 +76,7 @@ class HeroPlane(SatusPlane):
         image="./feiji/bullet-3.gif"
         super(HeroPlane,self).Shoot(image,40,-20)
 
+
 class EnemyPlane(SatusPlane):
     def __init__(self,screen):
         image ="./feiji/enemy-3.gif"
@@ -101,6 +99,18 @@ class EnemyPlane(SatusPlane):
         if randomBa == 25:
             super(EnemyPlane,self).Shoot(image,70,240)
 
+class HpContry(object):
+    """docstring for HpContry"""
+    def __init__(self, arg):
+        self.hero_hp = 100
+        self.enemy_hp = 100
+    
+    def judgeHp(self,hero,enemy):     
+        
+
+        if self.HP<0:
+            
+        
        
 if __name__== "__main__":
     screen = pygame.display.set_mode((480,890),0,32)
